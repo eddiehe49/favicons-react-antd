@@ -4,15 +4,6 @@ import logo from "../logo.svg"
 
 function About(params) {
     return (
-        // <div className="App">
-        //     <header className="App-header">
-        //         <img src={logo} className="App-logo" alt="logo" />
-        //         <p>Edit <code>src/App.js</code> and save to reload.</p>
-        //         <a className="App-link" href="reactjs.org" target="_blank" rel="noopener noreferrer">
-        //             Learn React
-        //         </a>
-        //     </header>
-        // </div>
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
@@ -22,16 +13,16 @@ function About(params) {
                         React
                     </a>
                     &nbsp;<code>&</code>&nbsp;
-                    <a className="App-link" href="https://react-bootstrap.github.io/" target="_blank" rel="noopener noreferrer">
+                    <a className="App-link" href="https://ant.design/index-cn" target="_blank" rel="noopener noreferrer">
                         Ant Design
                     </a>
                     &nbsp;<code>&</code>&nbsp;
-                    <a className="App-link" href="http://jsonplaceholder.typicode.com/" target="_blank" rel="noopener noreferrer">
+                    <a className="App-link" href="https://jsonplaceholder.typicode.com/" target="_blank" rel="noopener noreferrer">
                         JSONPlaceholder
                     </a>
                     &nbsp;<code>&</code>&nbsp;
-                    <a className="App-link" href="https://jsonbin.io/" target="_blank" rel="noopener noreferrer">
-                        JSONBIN
+                    <a className="App-link" href="https://app.krat.es/" target="_blank" rel="noopener noreferrer">
+                        Krates
                     </a>
                     &nbsp;<code>&</code>&nbsp;
                     <a className="App-link" href="https://vercel.com/" target="_blank" rel="noopener noreferrer">
