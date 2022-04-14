@@ -44,19 +44,6 @@ function Home(params) {
     setIndex(e.target.children[0].getAttribute("index"))
   }
 
-  const confirmVarification = () => {
-    if (inputNumberValue === 1) {
-      setIconName("LoadingOutlined")
-      modalClose()
-      // patchJsonplaceholderFavicons()
-      putJsonbinFavicons()
-      // putKratesFavicons()
-    }
-    else {
-      openWarningNotificationWithIcon()
-    }
-  }
-
   const getJsonplaceholderFavicons = () => {
     const getFavicons = async () => {
       let res = await Service.getJsonplaceholderFaviconsJson()
@@ -168,11 +155,24 @@ function Home(params) {
       });
   }
 
+  const confirmVarification = () => {
+    if (inputNumberValue === 1) {
+      setIconName("LoadingOutlined")
+      modalClose()
+      // patchJsonplaceholderFavicons()
+      // putJsonbinFavicons()
+      putKratesFavicons()
+    }
+    else {
+      openWarningNotificationWithIcon()
+    }
+  }
+
   useEffect(() => {
     setIconName("LoadingOutlined")
     // getJsonplaceholderFavicons()
-    getJsonbinFavicons()
-    // getKratesFavicons()
+    // getJsonbinFavicons()
+    getKratesFavicons()
   }, [])
 
 
