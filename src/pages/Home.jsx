@@ -48,8 +48,8 @@ function Home(params) {
     if (inputNumberValue === 1) {
       setIconName("LoadingOutlined")
       modalClose()
-      patchJsonplaceholderFavicons()
-      // putJsonbinFavicons()
+      // patchJsonplaceholderFavicons()
+      putJsonbinFavicons()
       // putKratesFavicons()
     }
     else {
@@ -170,8 +170,8 @@ function Home(params) {
 
   useEffect(() => {
     setIconName("LoadingOutlined")
-    getJsonplaceholderFavicons()
-    // getJsonbinFavicons()
+    // getJsonplaceholderFavicons()
+    getJsonbinFavicons()
     // getKratesFavicons()
   }, [])
 
