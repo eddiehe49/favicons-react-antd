@@ -9,7 +9,7 @@ const { SubMenu } = Menu;
 function App() {
   return (
     <div className="App">
-      <Layout.Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+      <Layout.Header style={{ zIndex: 1, width: '100%' }}>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["home"]}>
           <Menu.Item key="home">
             <Link to="/">
