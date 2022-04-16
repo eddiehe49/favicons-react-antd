@@ -8,6 +8,15 @@ function About(params) {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
+                    <strong>What are favicons?</strong>
+                    <br />
+                    Check out this <a href="https://eddiehe.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: "#1890ff" }}>
+                        site
+                    </a> on your desktop browser.
+                    <br />
+                    Do you see the tiny icon in the left of the tab? That's a favicon!
+                </p>
+                <p>
                     Powerd by&nbsp;
                     <a className="App-link" href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
                         React

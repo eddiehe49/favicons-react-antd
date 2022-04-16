@@ -57,6 +57,10 @@ code {
   vertical-align : middle;
 }
 
+.leftWords a {
+  color: #1890ff;
+}
+
 .rightWords {
   padding-left   : 5%;
   justify-content: left;
