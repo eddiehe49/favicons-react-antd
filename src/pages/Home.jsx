@@ -20,7 +20,7 @@ function Home(params) {
   const openSuccessNotificationWithIcon = () => {
     notification["success"]({
       message: "Success",
-      description: "Thank you for your like!"
+      description: "Thanks for your thumbs up!"
     })
   }
 

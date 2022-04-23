@@ -1,26 +1,42 @@
 import React from "react";
 import '../App.css';
 import logo from "../logo.svg"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import waline from '../services/Waline.js';
+import { Drawer, Button } from 'antd';
 
 function About(params) {
+    const [drawerVisible, setDrawerVisible] = useState(false);
+
     useEffect(() => {
         waline.update()
     }, [])
+
     return (
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    <strong>What are favicons?</strong>
-                    <br />
-                    Check out this <a href="https://eddiehe.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: "#1890ff" }}>
-                        site
-                    </a> on your desktop browser.
-                    <br />
-                    Do you see the tiny icon in the left of the tab? That's a favicon!
-                </p>
+                <Button type="primary" onClick={() => { setDrawerVisible(true) }} style={{ margin: "3% 0 3% 0" }}>
+                    What are favicons?
+                </Button>
+                <Drawer
+                    title="What are favicons?"
+                    placement={"bottom"}
+                    onClose={() => { setDrawerVisible(false) }}
+                    visible={drawerVisible}
+                    height={"250"}
+                >
+                    <h3>
+                        <br />
+                        Check out this <a href="https://eddiehe.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: "#1890ff" }}>
+                            site
+                        </a> on your desktop browser.
+                        <br />
+                        Do you see the tiny icon in the left of the tab?
+                        <br />
+                        That's a favicon!
+                    </h3>
+                </Drawer>
                 <p>
                     Powerd by&nbsp;
                     <a className="App-link" href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
@@ -49,7 +65,7 @@ function About(params) {
                     </a>
                 </p>
             </header>
-        </div>
+        </div >
     )
 }
 
