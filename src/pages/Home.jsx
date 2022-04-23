@@ -4,7 +4,8 @@ import '../App.css';
 import "../antd.dark.css";
 import Service from '../services/Service.js';
 import { Card, Modal, InputNumber, Tooltip, notification } from 'antd';
-import { LikeOutlined, LikeFilled, LoadingOutlined } from "@ant-design/icons"
+import { LikeOutlined, LikeFilled, LoadingOutlined } from "@ant-design/icons";
+import waline from '../services/Waline.js';
 
 function Home(params) {
   const [localFavicons, setLocalFavicons] = useState()
@@ -173,6 +174,7 @@ function Home(params) {
     // getJsonplaceholderFavicons()
     // getJsonbinFavicons()
     getKratesFavicons()
+    waline.update()
   }, [])
 
 
