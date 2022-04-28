@@ -48,15 +48,15 @@ function Home(params) {
   const getJsonplaceholderFavicons = () => {
     const getFavicons = async () => {
       let res = await Service.getJsonplaceholderFaviconsJson()
-      console.log("get jsonplaceholder result =", res);
+      console.log("get jsonplaceholder result: ", res);
       setLocalFavicons(res.data)
       setIconName("LikeOutlined")
-      console.log("localFavicons =", localFavicons)
+      console.log("localFavicons: ", localFavicons)
     }
     getFavicons()
       .catch((error) => {
         openErrorNotificationWithIcon()
-        console.log("get jsonplaceholder error =", error)
+        console.log("get jsonplaceholder error: ", error)
       });
   };
 
@@ -65,7 +65,7 @@ function Home(params) {
       let res = await Service.patchJsonplaceholderFaviconsJson(index, {
         likes: localFavicons[index].likes + 1,
       })
-      console.log("patch jsonplaceholder result =", res);
+      console.log("patch jsonplaceholder result: ", res);
       localFavicons[index].likes += 1
       setIconName("LikeFilled")
       openSuccessNotificationWithIcon()
@@ -77,22 +77,22 @@ function Home(params) {
     patchFavicons()
       .catch((error) => {
         openErrorNotificationWithIcon()
-        console.log("patch jsonplaceholder error =", error)
+        console.log("patch jsonplaceholder error: ", error)
       });
   };
 
   const getJsonbinFavicons = () => {
     const getFavicons = async () => {
       let res = await Service.getJsonbinFaviconsJson()
-      console.log("get jsonbin result =", res);
+      console.log("get jsonbin result: ", res);
       setLocalFavicons(res.data.record.favicons)
       setIconName("LikeOutlined")
-      console.log("localFavicons =", localFavicons)
+      console.log("localFavicons: ", localFavicons)
     }
     getFavicons()
       .catch((error) => {
         openErrorNotificationWithIcon()
-        console.log("get jsonbin error =", error)
+        console.log("get jsonbin error: ", error)
       });
   };
 
@@ -103,7 +103,7 @@ function Home(params) {
     // In Vue, coould not do (let tempFavicons=this.localFavicons), as tempFavicons will sync with this.localFavicons
     const putFavicons = async () => {
       let res = await Service.putJsonbinFaviconsJson({ favicons })
-      console.log("put jsonbin result =", res)
+      console.log("put jsonbin result: ", res)
       localFavicons[index].likes += 1
       setIconName("LikeFilled")
       openSuccessNotificationWithIcon()
@@ -115,22 +115,22 @@ function Home(params) {
     putFavicons()
       .catch((error) => {
         openErrorNotificationWithIcon()
-        console.log("put jsonbin error =", error)
+        console.log("put jsonbin error: ", error)
       });
   };
 
   const getKratesFavicons = () => {
     const getFavicons = async () => {
       let res = await Service.getKratesFaviconsJson()
-      console.log("get krates result =", res);
+      console.log("get krates result: ", res);
       setLocalFavicons(res.data[0].favicons)
       setIconName("LikeOutlined")
-      console.log("localFavicons =", localFavicons)
+      console.log("localFavicons: ", localFavicons)
     }
     getFavicons()
       .catch((error) => {
         openErrorNotificationWithIcon()
-        console.log("get krates error =", error)
+        console.log("get krates error: ", error)
       });
   }
 
@@ -140,7 +140,7 @@ function Home(params) {
     favicons[index].likes += 1;
     const putFavicons = async () => {
       let res = await Service.putKratesFaviconsJson({ favicons })
-      console.log("put krates result =", res)
+      console.log("put krates result: ", res)
       localFavicons[index].likes += 1
       setIconName("LikeFilled")
       openSuccessNotificationWithIcon()
@@ -152,7 +152,7 @@ function Home(params) {
     putFavicons()
       .catch((error) => {
         openErrorNotificationWithIcon()
-        console.log("put krates error =", error)
+        console.log("put krates error: ", error)
       });
   }
 
@@ -181,7 +181,7 @@ function Home(params) {
   return (
     < div className="App" >
       <header className="App-header">
-        <div style={{ width: "100%", marginTop: "2%" }}>
+        <div style={{ width: "100%", paddingTop: "2%" }}>
           <div style={{ width: "37.5%", float: "left", }}>
             {localFavicons ? <p className="leftWords" dangerouslySetInnerHTML={{ __html: localFavicons[index].words }}>
             </p> : <p className="leftWords"><strong>Hold on please.</strong></p>}
@@ -212,7 +212,7 @@ function Home(params) {
             </Card.Grid>)
           }) : null}
         </div>
-        <div style={{ clear: "both", marginTop: "2%", marginBottom: "2%" }}>
+        <div style={{ clear: "both", padding: "3% 0 0% 0" }}>
           {localFavicons && iconName === "LikeOutlined" ? <Tooltip title="Click Me!" color={localFavicons[index].fill} placement="bottom" key={localFavicons[index].fill}><LikeOutlined style={{ fontSize: '180%', cursor: "pointer" }} onClick={modalShow} /></Tooltip> : null}
           {iconName === "LoadingOutlined" ? <LoadingOutlined style={{ fontSize: '180%' }} /> : null}
           {iconName === "LikeFilled" ? <LikeFilled style={{ fontSize: '180%' }} /> : null}
