@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import '../App.css';
-import "../antd.dark.css";
 import Service from '../services/Service.js';
 import { Card, Modal, InputNumber, Tooltip, notification, Image, Button } from 'antd';
 import { LikeOutlined, LikeFilled, LoadingOutlined } from "@ant-design/icons";
@@ -22,9 +21,9 @@ function Home(params) {
       centered: true,
       content: (
         <ul>
-          <li>There is a like button.<br />Give your preferred favicon a thumb up!</li>
+          <li><span style={{ fontSize: "medium", fontWeight: "bold" }}>There is a like button.</span><br />Give your preferred favicon a thumb up!</li>
           <br />
-          <li>Scroll down!<br />Have fun in the comment section. </li>
+          <li><span style={{ fontSize: "medium", fontWeight: "bold" }}>Scroll down!</span><br />Have fun in the comment section. </li>
         </ul>
       ),
       onOk() { setIntroductionModalVisible(false) },
@@ -200,13 +199,18 @@ function Home(params) {
           centered
           visible={introductionModalVisible}
           width={650}
+          closable={false}
           footer={[
+            <Button key="Close" type="" onClick={() => { setIntroductionModalVisible(false) }}>
+              Close
+            </Button>,
             <Button key="OK" type="primary" onClick={info}>
               OK
-            </Button>]}
+            </Button>
+          ]}
         >
           <Image
-            src="faviconIntroduction.jpg"
+            src="faviconsIntroduction.jpg"
           />
         </Modal>
         <div style={{ width: "100%", paddingTop: "2%" }}>
@@ -255,7 +259,7 @@ function Home(params) {
             width={400}
           >
             <p>lg10 = ?</p>
-            <InputNumber min={1} max={10} defaultValue={1} onChange={inputNumberOnChange} />
+            <InputNumber min={1} max={10} defaultValue={0} onChange={inputNumberOnChange} />
           </Modal>
         </div>
       </header>

@@ -16,9 +16,9 @@ function About(params) {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <Button type="primary" onClick={() => { setDrawerVisible(true) }} style={{ padding: "3% 0 3% 0" }}>
+                {/* <Button type="primary" onClick={() => { setDrawerVisible(true) }} style={{ padding: "3% 0 3% 0" }}>
                     What are favicons?
-                </Button>
+                </Button> */}
                 <Drawer
                     title="What are favicons?"
                     placement={"bottom"}

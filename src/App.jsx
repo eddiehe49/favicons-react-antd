@@ -2,7 +2,8 @@ import './App.css';
 import { Link, Outlet, useLocation } from "react-router-dom"
 import { Menu, Layout } from 'antd';
 import { DownOutlined } from "@ant-design/icons"
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.dark.css';
+// import 'antd/dist/antd.css';
 
 const { SubMenu } = Menu;
 
