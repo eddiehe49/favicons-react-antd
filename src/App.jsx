@@ -13,14 +13,14 @@ function App() {
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["home"]}>
           <Menu.Item key="home">
             <Link to="/">
-              Eddie He's Favicons
+              Eddie's Favicons
             </Link>
           </Menu.Item>
-          <SubMenu key="Avatars SubMenu" icon={<DownOutlined />} title="Avatars">
-            <Menu.Item key="avatars-react-bootstrap"><a href="https://eddiehe-avatars-darkmode.vercel.app/" rel="noopener noreferrer">DarkMode</a></Menu.Item>
-            <Menu.Item key="avatars-vue-element-plus"><a href="https://eddiehe-avatars-lightmode.onrender.com/" rel="noopener noreferrer">LightMode</a></Menu.Item>
-            <SubMenu key="avatars-json" title="JSON">
-              <Menu.Item key="avatars-jsonlaceholder"><a href="https://my-json-server.typicode.com/eddiehe49/avatars-json/" target="_blank" rel="noopener noreferrer">JSONPlaceholder</a></Menu.Item>
+          <SubMenu key="Avatars SubMenu" icon={<DownOutlined />} title="Profile Pictures">
+            <Menu.Item key="profile-pictures-react-bootstrap"><a href="https://eddiehe-profile-picturess-darkmode.vercel.app/" rel="noopener noreferrer">DarkMode</a></Menu.Item>
+            <Menu.Item key="profile-pictures-vue-element-plus"><a href="https://eddiehe-profile-pictures-lightmode.onrender.com/" rel="noopener noreferrer">LightMode</a></Menu.Item>
+            <SubMenu key="profile-pictures-json" title="JSON">
+              <Menu.Item key="profile-pictures-jsonlaceholder"><a href="https://my-json-server.typicode.com/eddiehe49/profile-pictures/" target="_blank" rel="noopener noreferrer">JSONPlaceholder</a></Menu.Item>
             </SubMenu>
           </SubMenu>
           <SubMenu key="Favicons SubMenu" icon={<DownOutlined />} title="Favicons">
@@ -28,7 +28,7 @@ function App() {
             <Menu.Item key="favicons-react-antd" disabled={useLocation().pathname === "/" ? "true" : null}><Link to="/">DarkMode</Link></Menu.Item>
             <Menu.Item key="favicons-vue-vuetify"><a href="https://eddiehe-favicons-lightmode.onrender.com/" rel="noopener noreferrer">LightMode</a></Menu.Item>
             <SubMenu key="favicons-json" title="JSON">
-              <Menu.Item key="favicons-jsonplaceholder"><a href="https://my-json-server.typicode.com/eddiehe49/favicons-json/" target="_blank" rel="noopener noreferrer">JSONPlaceholder</a></Menu.Item>
+              <Menu.Item key="favicons-jsonplaceholder"><a href="https://my-json-server.typicode.com/eddiehe49/favicons/" target="_blank" rel="noopener noreferrer">JSONPlaceholder</a></Menu.Item>
             </SubMenu>
           </SubMenu>
           <Menu.Item key="about" disabled={useLocation().pathname === "/about" ? "true" : null}>

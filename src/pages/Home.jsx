@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import '../App.css';
 import "../antd.dark.css";
 import Service from '../services/Service.js';
-import { Card, Modal, InputNumber, Tooltip, notification } from 'antd';
+import { Card, Modal, InputNumber, Tooltip, notification, Image, Button } from 'antd';
 import { LikeOutlined, LikeFilled, LoadingOutlined } from "@ant-design/icons";
 import waline from '../services/Waline.js';
 
@@ -13,9 +13,23 @@ function Home(params) {
   const [index, setIndex] = useState(0)
   const [inputNumberValue, setInputNumberValue] = useState(1)
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const modalClose = () => setModalVisible(false);
-  const modalShow = () => setModalVisible(true);
+  const [verificationModalVisible, setVerificationModalVisible] = useState(false);
+  const [introductionModalVisible, setIntroductionModalVisible] = useState(true);
+
+  const info = () => {
+    Modal.info({
+      title: 'Tips',
+      centered: true,
+      content: (
+        <ul>
+          <li>There is a like button.<br />Give your preferred favicon a thumb up!</li>
+          <br />
+          <li>Scroll down!<br />Have fun in the comment section. </li>
+        </ul>
+      ),
+      onOk() { setIntroductionModalVisible(false) },
+    });
+  }
 
   const openSuccessNotificationWithIcon = () => {
     notification["success"]({
@@ -159,7 +173,7 @@ function Home(params) {
   const confirmVarification = () => {
     if (inputNumberValue === 1) {
       setIconName("LoadingOutlined")
-      modalClose()
+      setVerificationModalVisible(false)
       // patchJsonplaceholderFavicons()
       // putJsonbinFavicons()
       putKratesFavicons()
@@ -181,6 +195,20 @@ function Home(params) {
   return (
     < div className="App" >
       <header className="App-header">
+        <Modal
+          title="What are favicons?"
+          centered
+          visible={introductionModalVisible}
+          width={650}
+          footer={[
+            <Button key="OK" type="primary" onClick={info}>
+              OK
+            </Button>]}
+        >
+          <Image
+            src="faviconIntroduction.jpg"
+          />
+        </Modal>
         <div style={{ width: "100%", paddingTop: "2%" }}>
           <div style={{ width: "37.5%", float: "left", }}>
             {localFavicons ? <p className="leftWords" dangerouslySetInnerHTML={{ __html: localFavicons[index].words }}>
@@ -213,17 +241,17 @@ function Home(params) {
           }) : null}
         </div>
         <div style={{ clear: "both", padding: "3% 0 0% 0" }}>
-          {localFavicons && iconName === "LikeOutlined" ? <Tooltip title="Click Me!" color={localFavicons[index].fill} placement="bottom" key={localFavicons[index].fill}><LikeOutlined style={{ fontSize: '180%', cursor: "pointer" }} onClick={modalShow} /></Tooltip> : null}
+          {localFavicons && iconName === "LikeOutlined" ? <Tooltip title="Click Me!" color={localFavicons[index].fill} placement="bottom" key={localFavicons[index].fill}><LikeOutlined style={{ fontSize: '180%', cursor: "pointer" }} onClick={() => { setVerificationModalVisible(true) }} /></Tooltip> : null}
           {iconName === "LoadingOutlined" ? <LoadingOutlined style={{ fontSize: '180%' }} /> : null}
           {iconName === "LikeFilled" ? <LikeFilled style={{ fontSize: '180%' }} /> : null}
         </div>
-        <div className="componentsDarkMode">
+        <div>
           <Modal
             title="Verification"
             centered
-            visible={modalVisible}
+            visible={verificationModalVisible}
             onOk={confirmVarification}
-            onCancel={modalClose}
+            onCancel={() => { setVerificationModalVisible(false) }}
             width={400}
           >
             <p>lg10 = ?</p>
