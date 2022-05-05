@@ -1,12 +1,13 @@
 import React from "react";
 import '../App.css';
 import logo from "../logo.svg"
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
+import { Button } from 'antd';
 import waline from '../services/Waline.js';
-import { Drawer, Button } from 'antd';
+import { modal } from "../App"
 
 function About(params) {
-    const [drawerVisible, setDrawerVisible] = useState(false);
+    const { setFaviconsIntroductionModalVisible } = useContext(modal)
 
     useEffect(() => {
         waline.update()
@@ -16,27 +17,9 @@ function About(params) {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                {/* <Button type="primary" onClick={() => { setDrawerVisible(true) }} style={{ padding: "3% 0 3% 0" }}>
+                <Button type="primary" onClick={() => { setFaviconsIntroductionModalVisible(true) }} style={{ margin: "1% 0 2% 0" }}>
                     What are favicons?
-                </Button> */}
-                <Drawer
-                    title="What are favicons?"
-                    placement={"bottom"}
-                    onClose={() => { setDrawerVisible(false) }}
-                    visible={drawerVisible}
-                    height={"250"}
-                >
-                    <h3>
-                        <br />
-                        Check out this <a href="https://eddiehe.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: "#1890ff" }}>
-                            site
-                        </a> on your desktop browser.
-                        <br />
-                        Do you see the tiny icon in the left of the tab?
-                        <br />
-                        That's a favicon!
-                    </h3>
-                </Drawer>
+                </Button>
                 <p>
                     Powerd by&nbsp;
                     <a className="App-link" href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">

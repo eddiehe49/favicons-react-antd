@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import '../App.css';
 import Service from '../services/Service.js';
-import { Card, Modal, InputNumber, Tooltip, notification, Image, Button } from 'antd';
+import { Card, Modal, InputNumber, Tooltip, notification } from 'antd';
 import { LikeOutlined, LikeFilled, LoadingOutlined } from "@ant-design/icons";
 import waline from '../services/Waline.js';
 
@@ -11,24 +11,7 @@ function Home(params) {
   const [iconName, setIconName] = useState("LikeOutlined")
   const [index, setIndex] = useState(0)
   const [inputNumberValue, setInputNumberValue] = useState(1)
-
   const [verificationModalVisible, setVerificationModalVisible] = useState(false);
-  const [introductionModalVisible, setIntroductionModalVisible] = useState(true);
-
-  const info = () => {
-    Modal.info({
-      title: 'Tips',
-      centered: true,
-      content: (
-        <ul>
-          <li><span style={{ fontSize: "medium", fontWeight: "bold" }}>There is a like button.</span><br />Give your preferred favicon a thumb up!</li>
-          <br />
-          <li><span style={{ fontSize: "medium", fontWeight: "bold" }}>Scroll down!</span><br />Have fun in the comment section. </li>
-        </ul>
-      ),
-      onOk() { setIntroductionModalVisible(false) },
-    });
-  }
 
   const openSuccessNotificationWithIcon = () => {
     notification["success"]({
@@ -194,25 +177,6 @@ function Home(params) {
   return (
     < div className="App" >
       <header className="App-header">
-        <Modal
-          title="What are favicons?"
-          centered
-          visible={introductionModalVisible}
-          width={650}
-          closable={false}
-          footer={[
-            <Button key="Close" type="" onClick={() => { setIntroductionModalVisible(false) }}>
-              Close
-            </Button>,
-            <Button key="OK" type="primary" onClick={info}>
-              OK
-            </Button>
-          ]}
-        >
-          <Image
-            src="faviconsIntroduction.jpg"
-          />
-        </Modal>
         <div style={{ width: "100%", paddingTop: "2%" }}>
           <div style={{ width: "37.5%", float: "left", }}>
             {localFavicons ? <p className="leftWords" dangerouslySetInnerHTML={{ __html: localFavicons[index].words }}>
@@ -231,7 +195,6 @@ function Home(params) {
             </p> : <p className="rightWords"><strong>...</strong></p>}
           </div>
         </div>
-
         <div className="cardHolder">
           {localFavicons ? localFavicons.map((localFavicon) => {
             return (<Card bordered={false} hoverable="true" style={{ height: 93, backgroundColor: localFavicon.fill, color: "white" }} className="card" key={localFavicon.id} onClick={cardClick}>
