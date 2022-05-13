@@ -20,7 +20,7 @@ const items = [
     children: [
       {
         label: (
-          <a href="https://eddiehe-profile-picturess-darkmode.vercel.app/" rel="noopener noreferrer">DarkMode</a>
+          <a href="https://eddiehe-profile-pictures-darkmode.vercel.app/" rel="noopener noreferrer">DarkMode</a>
         ),
         key: 'profile-pictures-react-bootstrap',
       },
