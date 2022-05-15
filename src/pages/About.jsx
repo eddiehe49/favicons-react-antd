@@ -21,7 +21,7 @@ function About(params) {
                     What are favicons?
                 </Button>
                 <p>
-                    Powerd by&nbsp;
+                    Powered by&nbsp;
                     <a className="App-link" href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
                         React
                     </a>
