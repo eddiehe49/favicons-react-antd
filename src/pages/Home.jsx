@@ -77,43 +77,6 @@ function Home(params) {
       });
   };
 
-  const getJsonbinFavicons = () => {
-    const getFavicons = async () => {
-      let res = await Service.getJsonbinFaviconsJson()
-      console.log("get jsonbin result: ", res);
-      setLocalFavicons(res.data.record.favicons)
-      setIconName("LikeOutlined")
-      console.log("localFavicons: ", localFavicons)
-    }
-    getFavicons()
-      .catch((error) => {
-        openErrorNotificationWithIcon()
-        console.log("get jsonbin error: ", error)
-      });
-  };
-
-  const putJsonbinFavicons = () => {
-    let tempFavicons = JSON.stringify(localFavicons);
-    let favicons = JSON.parse(tempFavicons);
-    favicons[index].likes += 1;
-    // In Vue, coould not do (let tempFavicons=this.localFavicons), as tempFavicons will sync with this.localFavicons
-    const putFavicons = async () => {
-      let res = await Service.putJsonbinFaviconsJson({ favicons })
-      console.log("put jsonbin result: ", res)
-      localFavicons[index].likes += 1
-      setIconName("LikeFilled")
-      openSuccessNotificationWithIcon()
-      setTimeout(() => {
-        console.log("2.5 s passed. Change LikeFilled to LikeOutlined.")
-        setIconName("LikeOutlined")
-      }, 2500);
-    }
-    putFavicons()
-      .catch((error) => {
-        openErrorNotificationWithIcon()
-        console.log("put jsonbin error: ", error)
-      });
-  };
 
   const getKratesFavicons = () => {
     const getFavicons = async () => {
@@ -157,7 +120,6 @@ function Home(params) {
       setIconName("LoadingOutlined")
       setVerificationModalVisible(false)
       // patchJsonplaceholderFavicons()
-      // putJsonbinFavicons()
       putKratesFavicons()
     }
     else {
@@ -168,7 +130,6 @@ function Home(params) {
   useEffect(() => {
     setIconName("LoadingOutlined")
     // getJsonplaceholderFavicons()
-    // getJsonbinFavicons()
     getKratesFavicons()
     waline.update()
   }, [])
