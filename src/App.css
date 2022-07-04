@@ -80,8 +80,8 @@ code {
 }
 
 .card {
-  width          : 20%;
-  display        : inline-block;
-  color          : white;
-  justify-content: center;
+  width             : 20%;
+  display           : inline-block;
+  color             : white;
+  /* justify-content: center; */
 }

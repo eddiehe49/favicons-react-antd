@@ -196,11 +196,11 @@ function Home(params) {
           </div>
         </div>
         <div className="cardHolder">
-          {localFavicons ? localFavicons.map((localFavicon) => {
+          {/* {localFavicons ? localFavicons.map((localFavicon) => {
             return (<Card bordered={false} hoverable="true" style={{ height: 93, backgroundColor: localFavicon.fill, color: "white" }} className="card" key={localFavicon.id} onClick={cardClick}>
               <div index={localFavicon.id}></div>{localFavicon.colorName}
             </Card>)
-          }) : null}
+          }) : null} */}
           {localFavicons ? localFavicons.map((localFavicon) => {
             return (<Card.Grid style={{ backgroundColor: localFavicon.fill, cursor: "pointer" }} className="card" key={localFavicon.id} onClick={cardClick}>
               <div index={localFavicon.id}></div>{localFavicon.colorName}
